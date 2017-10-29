@@ -2,7 +2,6 @@ FROM debian:8.9
 MAINTAINER admin <evgeniy@kolesnyk.ru>
 RUN export DEBIAN_FRONTEND=noninteractive
 
-rm -f /var/lib/apt/lists/lock
 apt-get update -y
 apt-get upgrade -y
 apt-get install unzip nginx screen -y
