@@ -21,5 +21,10 @@ RUN echo "screen -A -m -d -S ms ./mslauncher" >> /root/ms063a6/start_ms_screen.s
 RUN chmod +x /root/ms063a6/start_ms_screen.sh
 RUN /root/ms063a6/start_ms_screen.sh
 RUN /etc/init.d/nginx restart
+RUN crontab -l > /root/cron.tmp
+RUN echo "@reboot /root/ms063a6/start_ms_screen.sh" >> /root/cron.tmp
+RUN crontab /root/cron.tmp
+RUN rm -f /root/cron.tmp
+
 
 EXPOSE 22 80 8888 8892 27010 27011 28906 
