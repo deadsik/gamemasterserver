@@ -5,9 +5,9 @@ RUN export DEBIAN_FRONTEND=noninteractive
 RUN rm -f /var/lib/apt/lists/lock
 RUN apt-get update -y
 RUN apt-get upgrade -y
-RUN apt-get install unzip nginx screen -y
-RUN /usr/bin/wget http://dark-games.org.ua/files/ms/default.conf -O /etc/nginx/sites-enabled/default
-RUN /usr/bin/wget http://dark-games.org.ua/files/ms/ms063a6.zip -O /root/ms063a6.zip
+RUN apt-get install unzip nginx screen curl -y
+RUN curl -o /etc/nginx/sites-enabled/default http://dark-games.org.ua/files/ms/default.conf
+RUN curl -o /root/ms063a6.zip http://dark-games.org.ua/files/ms/ms063a6.zip
 RUN unzip /root/ms063a6.zip -d /root/
 RUN rm -f /root/ms063a6.zip
 RUN chmod +x /root/ms063a6/mslauncher
