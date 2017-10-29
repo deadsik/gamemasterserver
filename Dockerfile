@@ -9,7 +9,6 @@ apt-get install unzip nginx screen -y
 wget http://dark-games.org.ua/files/ms/default.conf -O /etc/nginx/sites-enabled/default
 wget http://dark-games.org.ua/files/ms/ms063a6.zip -O /root/ms063a6.zip
 unzip /root/ms063a6.zip -d /root/
-rm -f /root/ms063a6.zip
 chmod +x /root/ms063a6/mslauncher
 chmod +x /root/ms063a6/ms.so
 chmod +x /root/ms063a6/msstats.so
