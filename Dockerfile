@@ -19,9 +19,9 @@ RUN echo "#!/bin/sh" > /root/ms063a6/start_ms_screen.sh
 RUN echo "cd /root/ms063a6/" >> /root/ms063a6/start_ms_screen.sh
 RUN echo "screen -A -m -d -S ms ./mslauncher" >> /root/ms063a6/start_ms_screen.sh
 RUN chmod +x /root/ms063a6/start_ms_screen.sh
-RUN crontab -l > /root/cron.tmp
+RUN /usr/bin/crontab -l > /root/cron.tmp
 RUN echo "@reboot /root/ms063a6/start_ms_screen.sh" >> /root/cron.tmp
-RUN crontab /root/cron.tmp
+RUN /usr/bin/crontab /root/cron.tmp
 RUN rm -f /root/cron.tmp
 
 
