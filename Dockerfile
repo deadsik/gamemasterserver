@@ -20,10 +20,8 @@ RUN echo "cd /root/ms063a6/" >> /root/ms063a6/start_ms_screen.sh
 RUN echo "screen -A -m -d -S ms ./mslauncher" >> /root/ms063a6/start_ms_screen.sh
 RUN chmod +x /root/ms063a6/start_ms_screen.sh
 RUN /usr/bin/crontab -l > /root/cron.tmp
-RUN echo "@reboot /root/ms063a6/start_ms_screen.sh" >> /root/cron.tmp
-RUN /usr/bin/crontab /root/cron.tmp
-RUN rm -f /root/cron.tmp
-
+COPY install.sh /root/install.sh 
+RUN chmod +x /root/install.sh
 
 EXPOSE 22 80 8888 8892 27010 27011 28906 
-ENTRYPOINT reboot
+ENTRYPOINT /root/install.sh
