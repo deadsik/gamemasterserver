@@ -19,7 +19,6 @@ RUN echo "#!/bin/sh" > /root/ms063a6/start_ms_screen.sh
 RUN echo "cd /root/ms063a6/" >> /root/ms063a6/start_ms_screen.sh
 RUN echo "screen -A -m -d -S ms ./mslauncher" >> /root/ms063a6/start_ms_screen.sh
 RUN chmod +x /root/ms063a6/start_ms_screen.sh
-RUN /usr/bin/crontab -l > /root/cron.tmp
 COPY install.sh /root/install.sh 
 RUN chmod +x /root/install.sh
 
